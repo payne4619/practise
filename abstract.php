@@ -44,3 +44,4 @@ class coclass extends abclass{
 
 $new1 = new coclass();
 echo $new1->prefixname('payneman');
+

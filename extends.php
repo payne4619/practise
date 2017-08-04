@@ -22,10 +22,12 @@ class son extends papa{
 }
 
 $obj = new son();
-$obj->export();
+//$obj->export();
 /**
  * 运行结果：
  * from son's print! and father classnameis papa.
  *this is a static value
  *
  */
+
+
