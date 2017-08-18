@@ -1,0 +1,97 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>进销存管理系统</title>
+    <style type="text/css">
+        .inputNoBorder {
+            border-style:none;
+        }
+        .title{
+            font-weight:bold;
+            background-color: #CFF;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table width="70%" border="1" cellpadding="0" cellspacing="0" id="order">
+        <caption>
+            <h3>进销存管理系统-后台进货管理</h3>
+        </caption>
+        <tr class="title" >
+            <td width="213">商品名称</td>
+            <td width="146">数量</td>
+            <td width="126">进价</td>
+            <td width="452">操作</td>
+        </tr>
+        <tr >
+            <td><input name="row1" type="text" value="雅芳Avon再生霜"  class="inputNoBorder"/></td>
+            <td><input name="row1" type="text" value="100" class="inputNoBorder"  size='5'/></td>
+            <td><input name="row1" type="text" value="&yen;8.50" class="inputNoBorder"  size='5'/></td>
+            <td><input name="rowdel" type="button" value="删除" onclick="delRow('order',this)" />
+                <input id="edit1" type="button" value="修改" onclick='editRow(this)' /></td>
+        </tr>
+        <tr >
+            <td><input name="row1" type="text" value="雅芳Avon防护日霜" class="inputNoBorder"/></td>
+            <td><input name="row1" type="text" value="200" class="inputNoBorder"  size='5'/></td>
+            <td><input name="row1" type="text" value="&yen;6.50" class="inputNoBorder"  size='5'/></td>
+            <td><input name="rowde2" type="button" value="删除" onclick="delRow('order',this)" />
+                <input id="edit2" type="button" value="修改" onclick='editRow(this)' /></td>
+        </tr>
+        <tr >
+            <td><input name="row1" type="text" value="欧珀莱补水妆" class="inputNoBorder"/></td>
+            <td><input name="row1" type="text" value="200" class="inputNoBorder"  size='5'/></td>
+            <td><input name="row1" type="text" value="&yen;10.50" class="inputNoBorder"  size='5'/></td>
+            <td><input name="rowde3" type="button" value="删除" onclick="delRow('order',this)" />
+                <input id="edit3" type="button" value="修改" onclick='editRow(this)' /></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="height:30px;">
+                <input name="addOrder" type="button" value="增加商品" onclick="addRow('order')" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+    function editRow(cellObj){
+        var trObj=cellObj.parentNode.parentNode ;   //获取保存按钮所在的行对象<tr>(父节点的父节点)
+        for (i=0;i<3;i++){
+            trObj.cells[i].firstChild.readOnly=false ;//用firstChild的时候td标签与input标签之间不能有空白
+            trObj.cells[i].firstChild.className="";  //依次将单元格中的文本框设为不带边框的样式，即取消修改状态
+        }
+        cellObj.value="保存";
+        //注意：onclick不是元素的属性，不能这样写： cellObj.onclik="editRow(this)";
+        cellObj.setAttribute("onclick","saveRow(this)");
+    }
+
+    function saveRow(sobj){
+        var obj =sobj.parentNode.parentNode;
+        for(i=0;i<3;i++){
+            obj.cells[i].firstChild.className="inputNoBorder";//用firstChild的时候td标签与input标签之间不能有空白
+            obj.cells[i].firstChild.readOnly=true;
+        }
+        sobj.value = "修改";
+        sobj.setAttribute("onclick","editRow(this)");
+    }
+
+    function delRow(tableID,cellObj){
+        var trObj=cellObj.parentNode.parentNode ;   //获取删除按钮所在的行对象<tr>
+        document.getElementById(tableID).deleteRow(trObj.rowIndex);//deleteRow()从表格删除指定位置的行 rowIndex返回某一行在表格的行集合中的位置
+    }
+
+    function addRow(tableId){
+        var addTable = document.getElementById(tableId);
+        var rowNums = addTable.rows.length;//返回表格的行数
+        var newRow = addTable.insertRow(rowNums-1);//返回信插入行的行号，倒数第一行(出去增加商品的那一行)
+        //用newRow.insertCell()方法给新创建的行添加内容
+        var col1=newRow.insertCell(0);
+        col1.innerHTML = "<input name='productName' type='text' value=''  /> ";
+        var col2=newRow.insertCell(1);
+        col2.innerHTML = "<input name='amount' type='text' value=''  size='5' /> ";
+        var col3=newRow.insertCell(2);
+        col3.innerHTML = "<input  name='InitPrice' type='text' value=''  size='5' /> ";
+        var col4=newRow.insertCell(3);
+        col4.innerHTML = "<input name='del' type='button' value='删除' onclick=\"delRow('order',this)\" />  <input name='save' type='button' value='保存' onclick='saveRow(this)' /> ";
+    }
+</script>

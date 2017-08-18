@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片的添加</title>
+    <style type="text/css">
+        ol li{ list-style-type:upper-alpha}  <!--有序列表按照字母表(大写)排列 -->
+    </style>
+</head>
+
+<body>
+<h2>喜欢的水果</h2>
+<input id="b1" type="button" value="增加一幅图片" onclick="newNode()" />
+<input id="b1" type="button" value="增加一个选项" onclick="addAnswer()" />
+<img src="images/sixty1.jpg" id="sixty1" alt="水果" />
+<img src="images/sixty2.jpg" id="sixty2" alt="果篮" />
+<ol id="questions">
+    <li><input type="text" name="answer" value="东南亚特产"/></li>
+</ol>
+</body>
+</html>
+<script type="text/javascript">
+function newNode(){
+    var image = document.createElement("img");//创建一个图片节点
+    image.setAttribute("src","images/newimg.jpg");//set the picture path
+    document.body.appendChild(image);//插入图片到document.body(字面理解是整个文件body体的)末尾
+}
+
+function addAnswer(){
+    var li    = document.createElement("li");//创建li列表标签
+    var input = document.createElement("input");//创建li列表标签
+    input.setAttribute("type","text");
+    input.setAttribute("name","answer");
+    li.appendChild(input);//input标签添加到li
+    var qes = document.getElementById("questions");
+    qes.appendChild(li);
+}
+</script>

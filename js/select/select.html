@@ -1,0 +1,105 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>D1M电子产品</title>
+    <style type="text/css">
+        .bg{
+            background-image: url(images/list_bg.gif);
+            background-repeat: no-repeat;
+            width: 730px;
+        }
+        td{
+            text-align:center;
+            font-size:13px;
+            line-height:25px;
+        }
+        body{ margin:0}
+    </style>
+    <script type="text/javascript">
+        function check(){
+            var input = document.getElementsByName("product");
+            for(var i=0;i<input.length;i++){
+                if(document.getElementById("all").checked==true){
+                    input[i].checked = true;
+                }else{
+                    input[i].checked = false;
+                }
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+<table border="0" cellspacing="0" cellpadding="0" class="bg">
+    <form action="" method="post">
+        <tr>
+            <td style="height:40px;">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr style="font-weight:bold;">
+            <td><input id="all" type="checkbox" value="全选" onclick="check();" />全选</td>
+            <td>商品图片</td>
+            <td>商品名称/出售者/联系方式</td>
+            <td>价格</td>
+        </tr>
+        <tr>
+            <td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="product" value="1"></td>
+            <td><img src="images/list0.jpg" alt=""></td>
+            <td>逗比家庭影院，超真实观影享受<br />出售者：payne8888<br />
+                <img src="images/online_pic.gif" alt="">&nbsp;&nbsp;
+                <img src="images/list_tool_fav1.gif" alt="">收藏</td>
+            <td>一口价<br />1249.0$</td>
+        </tr>
+        <tr>
+            <td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+        </tr
+        <tr>
+            <td><input name="product" type="checkbox" value="2" /></td>
+            <td><img src="images/list1.jpg" alt="alt" /></td>
+            <td>NVDIA 9999GT 512MB 256bit极品显卡，不容错过<br />
+                出售者：aipiaopiao110 <br />
+                <img src="images/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+                <img src="images/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+            <td>一口价<br />
+                6464.0 </td>
+        </tr>
+        <tr>
+            <td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+        </tr>
+        <tr>
+            <td><input name="product" type="checkbox" value="3" /></td>
+            <td><img src="images/list2.jpg" alt="alt" /></td>
+            <td>精品热卖：高清晰，30寸等离子电视<br />
+                出售者：阳光的挣扎 <br />
+                <img src="images/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+                <img src="images/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+            <td>一口价<br />
+                18888.0 </td>
+        </tr>
+        <tr>
+            <td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+        </tr>
+        <tr>
+            <td><input name="product" type="checkbox" value="4" /></td>
+            <td><img src="images/list3.jpg" alt="alt" /></td>
+            <td>Sony索尼家用最新款笔记本 <br />
+                出售者：疯狂的镜无<br />
+                <img src="images/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+                <img src="images/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+            <td>一口价<br />
+                5889.0 </td>
+        </tr>
+        <tr>
+            <td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
