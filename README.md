@@ -1,2 +1,0 @@
-# practise
-personally practise
